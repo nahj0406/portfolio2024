@@ -34,7 +34,7 @@ function About() {
                </dt>
 
                <dd className="text_box">
-                  <p>
+                  <p className='text1 Prtd'>
                      안녕하세요. 웹퍼블리셔 나현종이라고 합니다. <br />
                      웹 애니메이션 기술을 다양하게 응용할 수 있는 인터렉티브앱에 관심이 있으며, <br />
                      장기적인 목표로 프론트엔드 개발자에 관한 내용과 node.js를 이용한 자바스크립트 <br /> 
@@ -56,7 +56,7 @@ function About() {
                            <span>2020.10 ~ 2021.02</span>
                            <span>디지털디자인(웹디자이너, 웹퍼블리셔) 양성과정</span>
                         </div>
-                        <p>
+                        <p className='text1 Prtd'>
                            ui/ux디자인을 구성 설계하고, html5, css3, javascript를 활용한 기업형 웹사이트, 모바일 웹, 반응형 웹 페이지
                            를 구현하는 교육과정을 이수했습니다.
                         </p>
@@ -80,7 +80,7 @@ function About() {
                            <span className="">웹퍼블리셔</span>
                            <span className="">인수합병으로 인한 사직</span>
                         </div>
-                        <p>
+                        <p className='text1 Prtd'>
                            3개월의 수습기간 이후 정규직으로 전환한 뒤 기업, 공공기관, 프렌차이즈, 공모전 등 여러가지 프로젝트를 
                            그누보드를 토대로 메인 퍼블리싱과 그누보드 영카트 쇼핑몰, 약간의 php 개발 등을 함께 맡아 작업하였습니다.
                         </p>

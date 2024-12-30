@@ -1,4 +1,30 @@
+/* noto sans */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
+/* poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.Pop {font-family: "Poppins", serif !important;}
+/* rubik */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.rubik {font-family: "Rubik", sans-serif !important;}
+
+/* 가비아 */
+@font-face {
+  font-family: 'GabiaGosran-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2409-2@1.0/GabiaGosran-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.Gabia {font-family: 'GabiaGosran-Regular' !important;}
+
+/* 프리텐다드 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+.Prtd {font-family: 'Pretendard-Regular' !important;}
 
 :root {
 	--rem-vw : min(calc(10 / 768 * 100vw), 10px);
@@ -10,12 +36,17 @@
 
 html {font-size: var(--rem-vw);}
 body {margin: 0; padding: 0;}
-* {box-sizing: border-box; line-height: 1; margin: 0; padding: 0;}
+* {
+  box-sizing: border-box; line-height: 1; margin: 0; padding: 0;
+  font-family: "Noto Sans KR", serif;
+}
 a {text-decoration: none;}
 h1,h2,h3,h4,h5,p,span,b,strong {margin: 0; padding: 0;}
 #root {width: 100%;}
 .App {width: 100%; position: relative;}
 ul,ol,li {list-style: none; padding: 0; margin: 0;}
+button, input, submit {border: none; background: none;}
+
 
 
 /* 페이지 규격 */
@@ -50,6 +81,8 @@ header {
   width: 100%; height: var(--header-H);
   top: 0;
   left: 0;
+  padding: 0 15px;
+  z-index: 1000;
 }
 
 header .containerV1 {
@@ -59,16 +92,84 @@ header .containerV1 {
   justify-content: space-between;
 }
 
+header #logo {
+  text-transform: uppercase; letter-spacing: 1px;
+  font-size: 18px; color: #111;
+}
+header #logo > span {font-family: inherit; color: #fe5058;}
+
 header .Menu {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
 }
 header .Menu > a {
-  font-size: 2rem;
+  font-size: 18px;
   color: #111;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
+header .Menu > a > span {
+  font-family: inherit; font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 769px) {
+  header .mob_btn {display: none;}
+  header .mob_screen {display: none;}
+}
+
+@media (max-width: 768px) {
+  header .outer {
+    position: absolute; top: 0; right: -15px;
+    background: #ddd;
+    width: 200px;
+    height: 100vh;
+    padding: var(--header-H) 0 0;
+    z-index: 2;
+  }
+
+  header .outer .Menu {
+    display: flex; flex-direction: column;
+    gap: 20px;
+  }
+  header .outer .Menu > a {
+    padding: 10px 15px; text-align: center;
+    width: 100%;
+  }
+
+  header .mob_btn {
+    position: relative; z-index: 3;
+    cursor: pointer; width: 30px; height: 20px;
+  }
+  header .mob_btn::before, header .mob_btn::after {
+    content: ''; position: absolute; width: 100%; height: 2px;
+    background: #000; left: 0;
+  }
+
+  header .mob_btn::before {top: 0;}
+  header .mob_btn::after {bottom: 0;}
+
+  header .mob_btn span {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 100%; height: 2px; display: block;
+    border-bottom: 2px solid #000;
+  }
+
+  header .mob_screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+}
+
+
+
+
+
 
 .App .container {
   width: 100%; height: 100%; display: grid;
@@ -84,7 +185,13 @@ header .Menu > a {
 
 /* About @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-#About {overflow-y: scroll; height: 780px;}
+#About {
+  overflow-y: scroll; height: 780px;
+  -ms-overflow-style: none;
+}
+#About::-webkit-scrollbar{
+ display:none;
+}
 
 #About .gridBox .gr_item {
   margin-bottom: 5rem;
@@ -110,7 +217,7 @@ header .Menu > a {
 #About .gridBox .gr_item > dd {
   padding-left: 2rem;
 }
-#About .gridBox .gr_item .text_box p {
+#About p.text1 {
   font-size: 1.6rem;
   line-height: 1.6;
 }

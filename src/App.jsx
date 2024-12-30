@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Suspense, useState, useEffect } from 'react'
 import {Routes, Route, Link, useLocation} from 'react-router-dom'
 import './App.css'
@@ -58,17 +59,35 @@ function App() {
 }
 
 function Header() {
+
+   let [MenuNormal, MenuActive] = useState('');
+   let $mobBtn = document.querySelector('header .mob_btn');
+   let $mobScreen = document.querySelector('header .mob_screen');
+   
+   $mobBtn.addEventListener('toggle', function() {
+      MenuActive('active');
+   })
+
+   function mobMenu () {
+      
+   }
+
    return (
       <header>
          <div className='containerV1'>
-            <h1 id="logo">Na HYeOn JOng</h1>
+            <h1 id="logo" className='Gabia'>Nhj Portfolio <span>2024</span></h1>
    
-            <div className="Menu">
-               <Link className={``} to='/'><span>Home</span></Link>
-               <Link className={``} to='/About'><span>About</span></Link>
-               <Link className={``} to='/Portfolio'><span>Portfolio</span></Link>
-               <Link className={``} to='/Project'><span>Project</span></Link>
+            <div className={`outer ${MenuNormal}`}>
+               <div className="Menu">
+                  <Link className={`Pop`} to='/'><span>Home</span></Link>
+                  <Link className={`Pop`} to='/About'><span>About</span></Link>
+                  <Link className={`Pop`} to='/Portfolio'><span>Portfolio</span></Link>
+                  <Link className={`Pop`} to='/Project'><span>Project</span></Link>
+               </div>
             </div>
+
+            <button className={`mob_btn ${MenuNormal}`}><span></span></button>
+            <div className={`mob_screen ${MenuNormal}`}></div>
          </div>
       </header>
    )
