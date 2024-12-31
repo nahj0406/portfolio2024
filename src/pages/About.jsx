@@ -6,6 +6,7 @@ import {useSelector } from 'react-redux'
 function About() {
 
    let loadComponent = useSelector((state) => state.loadComponent);
+   let set_skill = useSelector((state) => state.set_skill);
 
    let [loadPage, setPage] = useState('');
 
@@ -53,8 +54,8 @@ function About() {
                      <li>
                         <div className="list_tit">
                            <h4><span></span> 대전 그린컴퓨터아트학원</h4>
-                           <span>2020.10 ~ 2021.02</span>
-                           <span>디지털디자인(웹디자이너, 웹퍼블리셔) 양성과정</span>
+                           <span className='tit_label date'>2020.10 ~ 2021.02</span>
+                           <span className='tit_label'>디지털디자인(웹디자이너, 웹퍼블리셔) 양성과정</span>
                         </div>
                         <p className='text1 Prtd'>
                            ui/ux디자인을 구성 설계하고, html5, css3, javascript를 활용한 기업형 웹사이트, 모바일 웹, 반응형 웹 페이지
@@ -76,14 +77,17 @@ function About() {
                      <li>
                         <div className="list_tit">
                            <h4><span></span> 아이케이 웹에이전시</h4>
-                           <span>2022.03 ~ 2024.07</span>
-                           <span className="">웹퍼블리셔</span>
-                           <span className="">인수합병으로 인한 사직</span>
+                           <span className='tit_label date'>2022.03 ~ 2024.07</span>
+                           <span className="tit_label">웹퍼블리셔</span>
+                           <span className="tit_label">인수합병으로 인한 사직</span>
                         </div>
                         <p className='text1 Prtd'>
                            3개월의 수습기간 이후 정규직으로 전환한 뒤 기업, 공공기관, 프렌차이즈, 공모전 등 여러가지 프로젝트를 
                            그누보드를 토대로 메인 퍼블리싱과 그누보드 영카트 쇼핑몰, 약간의 php 개발 등을 함께 맡아 작업하였습니다.
                         </p>
+                        <div className="career_skill">
+                           
+                        </div>
                      </li>
                   </ul>
                </dd>
@@ -100,7 +104,7 @@ function About() {
                      {
                         certi.map(function(a, i) {
                            return (
-                              <Skill_list key={i} i={i} skill ={a}></Skill_list>
+                              <Certi_list key={i} i={i} skill ={a}></Certi_list>
                            )
                         })
                      }
@@ -113,22 +117,56 @@ function About() {
                   <h2>Skill</h2>
                   <div className="line"></div>
                </dt>
+
+               <dd>
+                  <ul className="list_ty2">
+                  {
+                     set_skill.map((skillGroup, index) => (
+                        <Skill_list key={index} name={skillGroup} />
+                     ))
+                  }
+                  </ul>
+               </dd>
             </dl>
          </section>
       </div>
    )
 }
 
-function Skill_list(props) {
+function Certi_list(props) {
    return (
       <li>
          <div className="list_tit">
-            <h4><span></span>{props.skill.title}</h4>
+            <h4 className='ft_400'><span></span>{props.skill.title}</h4>
             
-            {props.skill.date ? <span>{props.skill.date}</span> : false}
+            {props.skill.date ? <span className='tit_label date'>{props.skill.date}</span> : false}
          </div>
       </li>
    )
+}
+
+
+function Skill_list({ name }) {
+   return (
+      <li>
+         <h3>{name.title}</h3>
+         <ul>
+            {
+               Object.keys(name).map((key, index) => {
+                  if (typeof name[key] === "object") {
+                     return (
+                        <li key={index}>
+                           <img src={name[key].img} alt={name[key].title} />
+                           <p>{name[key].title}</p>
+                        </li>
+                     );
+                  }
+                  return null;
+               })
+            }
+         </ul>
+      </li>
+   );
 }
 
 export default About;

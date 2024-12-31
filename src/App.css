@@ -28,9 +28,6 @@
 
 :root {
 	--rem-vw : min(calc(10 / 768 * 100vw), 10px);
-	--Y-color : #fff600;
-	--R-color : #fe5058;
-
   --header-H : 7rem;
 }
 
@@ -47,6 +44,7 @@ h1,h2,h3,h4,h5,p,span,b,strong {margin: 0; padding: 0;}
 ul,ol,li {list-style: none; padding: 0; margin: 0;}
 button, input, submit {border: none; background: none;}
 
+.ft_400 {font-weight: 400;}
 
 
 /* 페이지 규격 */
@@ -246,6 +244,61 @@ header .Menu > a > span {
   font-size: 1.6rem;
   line-height: 1.6;
 }
+
+/* list */
+#About .gridBox .gr_item ul.list > li:not(:last-child) {
+  margin-bottom: 2rem;
+}
+#About .gridBox .gr_item ul.list .list_tit {
+  position: relative; display: flex;
+  gap: 10px; align-items: center;
+  flex-wrap: wrap;
+}
+
+#About .gridBox .gr_item ul.list .list_tit > h4 {
+  font-size: 1.6rem; padding-left: 0.7em;
+}
+#About .gridBox .gr_item ul.list .list_tit > h4 > span {
+  position: relative;
+}
+#About .gridBox .gr_item ul.list .list_tit > h4 > span::before {
+  content:''; position: absolute;
+  top: 50%; transform: translateY(-50%);
+  left: -0.7em; width: 5px; height: 5px;
+  background: #000; border-radius: 50%;
+}
+
+#About .gridBox .gr_item ul.list .list_tit .tit_label {
+  font-size: 13px; font-weight: 500; padding: 5px 10px;
+  border-radius: 3px; background: #05713d;
+  color: #fff; margin-top: 1px;
+  cursor: default;
+}
+
+#About .gridBox .gr_item ul.list .list_tit .tit_label.date {
+  background: #bf0b13;
+}
+#About .gridBox .gr_item ul.list > li .text1 {
+  margin-top: 2rem;
+}
+
+#About .list_ty2 > li:not(:last-child) {
+  margin-bottom: 5rem;
+}
+
+#About .list_ty2 > li > ul {
+  display: flex; gap: 5rem;
+  flex-wrap: wrap;
+}
+
+#About .list_ty2 > li > ul > li {
+  display: flex; 
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+#About .list_ty2 > li > ul > li img {width: 8rem;}
 
 
 
