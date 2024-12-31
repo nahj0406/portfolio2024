@@ -60,16 +60,12 @@ function App() {
 
 function Header() {
 
-   let [MenuNormal, MenuActive] = useState('');
+   let [MenuState, setMenuState] = useState('');
    let $mobBtn = document.querySelector('header .mob_btn');
    let $mobScreen = document.querySelector('header .mob_screen');
-   
-   $mobBtn.addEventListener('toggle', function() {
-      MenuActive('active');
-   })
 
-   function mobMenu () {
-      
+   const toggleMenu = () => {
+      setMenuState((prev) => (prev === '' ? 'active' : ''));
    }
 
    return (
@@ -77,7 +73,7 @@ function Header() {
          <div className='containerV1'>
             <h1 id="logo" className='Gabia'>Nhj Portfolio <span>2024</span></h1>
    
-            <div className={`outer ${MenuNormal}`}>
+            <div className={`outer ${MenuState}`}>
                <div className="Menu">
                   <Link className={`Pop`} to='/'><span>Home</span></Link>
                   <Link className={`Pop`} to='/About'><span>About</span></Link>
@@ -86,8 +82,8 @@ function Header() {
                </div>
             </div>
 
-            <button className={`mob_btn ${MenuNormal}`}><span></span></button>
-            <div className={`mob_screen ${MenuNormal}`}></div>
+            <button onClick={toggleMenu} className={`mob_btn ${MenuState}`}><span></span></button>
+            <div onClick={() => setMenuState('')} className={`mob_screen ${MenuState}`}></div>
          </div>
       </header>
    )
