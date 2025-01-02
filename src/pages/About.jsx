@@ -16,6 +16,13 @@ function About() {
       {title : '정보처리산업기사(실기 준비중)'}
    ]
 
+   // skill tab용
+   let [Tab, SetTab] = useState(null);
+
+   const handleTabMenu = (index) => {
+      SetTab(index);
+   }
+
    useEffect(() => {
       let loadAni = setTimeout(() => {setPage('loadPage')}, 100);
 
@@ -30,7 +37,7 @@ function About() {
          <section className="gridBox">
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2>About Me</h2>
+                  <h2 className='Gabia'>About Me</h2>
                   <div className="line"></div>
                </dt>
 
@@ -45,7 +52,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2>Education</h2>
+                  <h2 className='Gabia'>Education</h2>
                   <div className="line"></div>
                </dt>
 
@@ -68,7 +75,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2>career</h2>
+                  <h2 className='Gabia'>career</h2>
                   <div className="line"></div>
                </dt>
 
@@ -95,7 +102,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2>certificate</h2>
+                  <h2 className='Gabia'>certificate</h2>
                   <div className="line"></div>
                </dt>
 
@@ -114,7 +121,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2>Skill</h2>
+                  <h2 className='Gabia'>Skill</h2>
                   <div className="line"></div>
                </dt>
 
@@ -122,7 +129,12 @@ function About() {
                   <ul className="list_ty2">
                   {
                      set_skill.map((skillGroup, index) => (
-                        <Skill_list key={index} name={skillGroup} />
+                        <Skill_list 
+                           key={index} 
+                           name={skillGroup} 
+                           isActive={Tab === index}
+                           onClick={() => handleTabMenu(index)}
+                        />
                      ))
                   }
                   </ul>
@@ -146,18 +158,21 @@ function Certi_list(props) {
 }
 
 
-function Skill_list({ name }) {
+function Skill_list({ name, isActive, onClick }) {
+
    return (
       <li>
-         <h3>{name.title}</h3>
-         <ul>
+         <h3 className={`Gabia ${isActive ? 'active' : ''}`} onClick={onClick}>{name.title}</h3>
+         <ul className={`${isActive ? 'active' : ''}`}>
             {
                Object.keys(name).map((key, index) => {
                   if (typeof name[key] === "object") {
                      return (
                         <li key={index}>
-                           <img src={name[key].img} alt={name[key].title} />
-                           <p>{name[key].title}</p>
+                           <figure className='img'>
+                              <img src={name[key].img} alt={name[key].title} />
+                           </figure>
+                           <span className='Gabia'>{name[key].title}</span>
                         </li>
                      );
                   }

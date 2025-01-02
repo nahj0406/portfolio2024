@@ -61,8 +61,6 @@ function App() {
 function Header() {
 
    let [MenuState, setMenuState] = useState('');
-   let $mobBtn = document.querySelector('header .mob_btn');
-   let $mobScreen = document.querySelector('header .mob_screen');
 
    const toggleMenu = () => {
       setMenuState((prev) => (prev === '' ? 'active' : ''));

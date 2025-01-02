@@ -4,6 +4,7 @@
 /* poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .Pop {font-family: "Poppins", serif !important;}
+
 /* rubik */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 .rubik {font-family: "Rubik", sans-serif !important;}
@@ -229,7 +230,7 @@ header .Menu > a > span {
 
 #About .gridBox .gr_item .title-line > h2 {
   font-size: 2.2rem; text-transform: uppercase;
-  width: fit-content;
+  width: fit-content; letter-spacing: 1.5px;
 }
 
 #About .gridBox .gr_item .title-line > .line {
@@ -282,24 +283,47 @@ header .Menu > a > span {
   margin-top: 2rem;
 }
 
+/* skill */
 #About .list_ty2 > li:not(:last-child) {
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
-#About .list_ty2 > li > ul {
-  display: flex; gap: 5rem;
-  flex-wrap: wrap;
+#About .list_ty2 {display: flex;}
+
+#About .list_ty2 > li > h3 {
+  font-size: 2rem; margin-bottom: 3rem;
+  text-transform: uppercase; letter-spacing: 2px;
+  font-weight: bold;
 }
+#About .list_ty2 > li > h3.active {color: #05713d;}
+
+#About .list_ty2 > li > ul {
+  display: flex; gap: 5rem; width: 100%;
+  flex-wrap: wrap; opacity: 0; display: none;
+}
+
+#About .list_ty2 > li > ul.active {opacity: 1; display: block;}
 
 #About .list_ty2 > li > ul > li {
   display: flex; 
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
 }
-#About .list_ty2 > li > ul > li img {width: 8rem;}
-
+#About .list_ty2 > li > ul > li .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.5rem;
+  height: 7.5rem;
+}
+#About .list_ty2 > li > ul > li .img img {width: 100%;}
+#About .list_ty2 > li > ul > li span {
+  font-size: 1.5rem; font-weight: bold;
+  line-height: 1.2; letter-spacing: 1px;
+}
 
 
 
