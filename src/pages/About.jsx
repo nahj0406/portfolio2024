@@ -13,11 +13,10 @@ function About() {
    const certi = [
       {title : '웹디자인기능사', date : '2020'}, 
       {title : 'GTQ포토샵1급', date : '2020'}, 
-      {title : '정보처리산업기사(실기 준비중)'}
    ]
 
    // skill tab용
-   let [Tab, SetTab] = useState(null);
+   let [Tab, SetTab] = useState(0);
 
    const handleTabMenu = (index) => {
       SetTab(index);
@@ -130,7 +129,8 @@ function About() {
                   {
                      set_skill.map((skillGroup, index) => (
                         <Skill_list 
-                           key={index} 
+                           key={index}
+                           i={index}
                            name={skillGroup} 
                            isActive={Tab === index}
                            onClick={() => handleTabMenu(index)}
@@ -158,11 +158,11 @@ function Certi_list(props) {
 }
 
 
-function Skill_list({ name, isActive, onClick }) {
+function Skill_list({ name, isActive, onClick, i }) {
 
    return (
       <li>
-         <h3 className={`Gabia ${isActive ? 'active' : ''}`} onClick={onClick}>{name.title}</h3>
+         <h3 className={`${isActive ? 'active' : ''} Gabia`} onClick={onClick}>{name.title}</h3>
          <ul className={`${isActive ? 'active' : ''}`}>
             {
                Object.keys(name).map((key, index) => {
