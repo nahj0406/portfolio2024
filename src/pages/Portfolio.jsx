@@ -19,8 +19,35 @@ function Portfolio() {
    }, []);
 
    return (
-      <div className={`${loadComponent} ${loadPage}`}>
-         222222
+      <div id="Portfolio" className={`secBox ${loadComponent} ${loadPage}`}>
+         <h2>PORTFOLIO</h2>
+
+         <div className="list_container">
+            <article className="item">
+               1
+               <div className="img_frame"></div>
+            </article>
+
+            <article className="item">
+               2
+               <div className="img_frame"></div>
+            </article>
+
+            <article className="item">
+               3
+               <div className="img_frame"></div>
+            </article>
+
+            <article className="item">
+               3
+               <div className="img_frame"></div>
+            </article>
+
+            <article className="item">
+               3
+               <div className="img_frame"></div>
+            </article>
+         </div>
       </div>
    )
 }

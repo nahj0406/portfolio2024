@@ -25,7 +25,7 @@ function About() {
    }, []);
 
    return (
-      <div id="About" className={`${loadComponent} ${loadPage}`}>
+      <div id="About" className={`secBox ${loadComponent} ${loadPage}`}>
          <section className="gridBox">
             <dl className="gr_item">
                <dt className="title-line">
