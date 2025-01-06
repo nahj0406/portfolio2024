@@ -33,7 +33,7 @@
 }
 
 html {font-size: var(--rem-vw);}
-body {margin: 0; padding: 0;}
+body {margin: 0; padding: 0; background: #efefef;}
 * {
   box-sizing: border-box; line-height: 1; margin: 0; padding: 0;
   font-family: "Noto Sans KR", serif;
@@ -229,8 +229,8 @@ header .Menu > a > span {
 }
 
 #About .gridBox .gr_item .title-line > h2 {
-  font-size: 2.2rem; text-transform: uppercase;
-  width: fit-content; letter-spacing: 1.5px;
+  font-size: max(14px, 1.6rem); text-transform: uppercase;
+  width: fit-content; letter-spacing: 1.5px; color: #000;
 }
 
 #About .gridBox .gr_item .title-line > .line {
@@ -242,7 +242,8 @@ header .Menu > a > span {
   padding-left: 2rem;
 }
 #About p.text1 {
-  font-size: 1.6rem;
+  font-size: max(14px, 1.6rem);
+  color: #333;
   line-height: 1.6;
 }
 
@@ -257,7 +258,7 @@ header .Menu > a > span {
 }
 
 #About .gridBox .gr_item ul.list .list_tit > h4 {
-  font-size: 1.6rem; padding-left: 0.7em;
+  font-size: max(14px, 1.6rem); padding-left: 0.7em;
 }
 #About .gridBox .gr_item ul.list .list_tit > h4 > span {
   position: relative;
@@ -270,14 +271,10 @@ header .Menu > a > span {
 }
 
 #About .gridBox .gr_item ul.list .list_tit .tit_label {
-  font-size: 13px; font-weight: 500; padding: 5px 10px;
-  border-radius: 3px; background: #05713d;
-  color: #fff; margin-top: 1px;
+  font-size: max(10px, 1.3rem); font-weight: 500; padding: 5px 10px;
+  border-radius: 3px; background: #617eff;
+  color: #eee; margin-top: 1px;
   cursor: default;
-}
-
-#About .gridBox .gr_item ul.list .list_tit .tit_label.date {
-  background: #bf0b13;
 }
 #About .gridBox .gr_item ul.list > li .text1 {
   margin-top: 2rem;
@@ -285,44 +282,37 @@ header .Menu > a > span {
 
 /* skill */
 #About .list_ty2 {
-  display: flex; gap: 5px;
-  padding-bottom: 30rem;
-  position: relative;
+  gap: 5px; width: 100%; max-width: 90%;
+  position: relative; margin-left: 2rem;
 }
-#About .list_ty2 > li {--active-color: #91aaff;}
 
 /* 스킬 탭버튼 */
-#About .list_ty2 > li > h3 {
-  font-size: 2rem; cursor: pointer;
-  text-transform: uppercase; letter-spacing: 2px;
-  font-weight: bold; padding: 5px 10px;
-  background: #9faad9; color: rgba(255,255,255,0.8);
-  border-radius: 7px 7px 0 0;
-  position: relative; top: 1.5rem;
+#About .list_ty2 > li:not(:last-child) {
+  margin-bottom: 5rem;
+}
 
-  transition: 0.3s;
+#About .list_ty2 > li > .skill_tit {
+  border-bottom: 1px solid #333;
+}
+
+#About .list_ty2 > li > .skill_tit h3 {
+  font-size: max(13px, 1.6rem); font-weight: bold;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 5px 10px; width: fit-content;
+  border: 1px solid #333;
+  border-bottom: none; background: #eee;
+  border-radius: 5px 5px 0 0;
+  position: relative; top: 1px;
+  margin-left: 1.5rem;
 }
 
 /* 스킬 내용 */
 #About .list_ty2 > li > ul {
-  display: flex; gap: 5rem; width: 100%; height: 100%;
-  flex-wrap: wrap; z-index: 1; padding: 2rem 15px;
-  position: absolute; top: 3rem; left: 0;
-  width: 100%;
-}
-#About .list_ty2 > li > ul > * {opacity: 0; visibility: hidden;}
-
-#About .list_ty2 > li > h3.active {
-  color: #fff; background: var(--active-color);
-  top: 0;
-}
-#About .list_ty2 > li > ul.active {
-   z-index: 2;
-   background: var(--active-color);
-}
-#About .list_ty2 > li > ul.active > * {
-  opacity: 1; visibility: visible;
-  transition: opacity 0.3s;
+  display: flex; gap: 5rem; 
+  width: 100%; height: 100%;
+  flex-wrap: wrap; z-index: 1;
+  padding: 4rem 15px 2rem 3rem;
+  max-width: 650px;
 }
 
 
@@ -331,22 +321,20 @@ header .Menu > a > span {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 10px;
 }
 #About .list_ty2 > li > ul > li .img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6.5rem;
-  height: 7.5rem;
+  width: 5rem;
+  height: 5.5rem;
 }
 #About .list_ty2 > li > ul > li .img img {width: 100%;}
 #About .list_ty2 > li > ul > li span {
-  font-size: 1.5rem; font-weight: bold; color: #fff;
+  font-size: max(10px, 1.2rem); font-weight: bold;
   line-height: 1.2; letter-spacing: 1px;
 }
-
-
 
 
 
@@ -365,4 +353,19 @@ footer #ft_logo {
   margin: 0 auto; 
   line-height: var(--header-H);
   cursor: default;
+}
+
+
+
+
+/* mobile */
+
+@media (max-width: 992px) {
+  .App .container {
+    flex-direction: column; 
+    overflow: auto; height: auto;
+  }
+
+  #About .gridBox .gr_item .title-line {margin-bottom: 4rem;}
+  #About .list_ty2 {margin-left: 0;}
 }

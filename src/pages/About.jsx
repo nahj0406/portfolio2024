@@ -15,13 +15,6 @@ function About() {
       {title : 'GTQ포토샵1급', date : '2020'}, 
    ]
 
-   // skill tab용
-   let [Tab, SetTab] = useState(0);
-
-   const handleTabMenu = (index) => {
-      SetTab(index);
-   }
-
    useEffect(() => {
       let loadAni = setTimeout(() => {setPage('loadPage')}, 100);
 
@@ -36,7 +29,7 @@ function About() {
          <section className="gridBox">
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2 className='Gabia'>About Me</h2>
+                  <h2 className=''>About Me</h2>
                   <div className="line"></div>
                </dt>
 
@@ -51,7 +44,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2 className='Gabia'>Education</h2>
+                  <h2 className=''>Education</h2>
                   <div className="line"></div>
                </dt>
 
@@ -74,7 +67,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2 className='Gabia'>career</h2>
+                  <h2 className=''>career</h2>
                   <div className="line"></div>
                </dt>
 
@@ -101,7 +94,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2 className='Gabia'>certificate</h2>
+                  <h2 className=''>certificate</h2>
                   <div className="line"></div>
                </dt>
 
@@ -120,7 +113,7 @@ function About() {
 
             <dl className="gr_item">
                <dt className="title-line">
-                  <h2 className='Gabia'>Skill</h2>
+                  <h2 className=''>Skill</h2>
                   <div className="line"></div>
                </dt>
 
@@ -130,10 +123,7 @@ function About() {
                      set_skill.map((skillGroup, index) => (
                         <Skill_list 
                            key={index}
-                           i={index}
                            name={skillGroup} 
-                           isActive={Tab === index}
-                           onClick={() => handleTabMenu(index)}
                         />
                      ))
                   }
@@ -162,8 +152,10 @@ function Skill_list({ name, isActive, onClick, i }) {
 
    return (
       <li>
-         <h3 className={`${isActive ? 'active' : ''} Gabia`} onClick={onClick}>{name.title}</h3>
-         <ul className={`${isActive ? 'active' : ''}`}>
+         <div className='skill_tit'>
+            <h3 className={``}>{name.title}</h3>
+         </div>
+         <ul className={``}>
             {
                Object.keys(name).map((key, index) => {
                   if (typeof name[key] === "object") {
@@ -172,7 +164,7 @@ function Skill_list({ name, isActive, onClick, i }) {
                            <figure className='img'>
                               <img src={name[key].img} alt={name[key].title} />
                            </figure>
-                           <span className='Gabia'>{name[key].title}</span>
+                           <span className=''>{name[key].title}</span>
                         </li>
                      );
                   }

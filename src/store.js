@@ -86,14 +86,6 @@ let set_skill = createSlice({
       },
 
       {
-         title : 'API',
-         kakao : {
-            title: 'Kakao API', 
-            img: './img/kakao_icon.png',
-         },
-      },
-
-      {
          title : 'Design Tool',
          ps : {
             title: 'Photoshop', 
@@ -102,6 +94,14 @@ let set_skill = createSlice({
          Ai : {
             title: 'Illustrator', 
             img: './img/Ai_icon.png',
+         },
+      },
+
+      {
+         title : 'API',
+         kakao : {
+            title: 'Kakao API', 
+            img: './img/kakao_icon.png',
          },
       },
    ]
