@@ -48,7 +48,7 @@ let set_skill = createSlice({
             img: './img/aos_icon.png',
          },
          split : {
-            title: 'Spliting.js',
+            title: 'Splitting.js',
             img: './img/split_icon.png',
          },
          swiper : {
