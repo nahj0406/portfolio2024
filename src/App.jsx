@@ -3,15 +3,26 @@ import { Suspense, useState, useEffect } from 'react'
 import {Routes, Route, Link, useLocation} from 'react-router-dom'
 import './App.css'
 import { useSelector } from 'react-redux'
+
 // pages
 import About from './pages/About.jsx'
 import Portfolio from './pages/Portfolio.jsx'
 import Project from './pages/Project.jsx'
 
-// gsap, lenis 세팅하기
-// react-query 할거면 다시 보고 세팅하기 설치는 했음
 
 function App() {
+
+   const ScrollToTop = () => {
+      const { pathname } = useLocation();
+      
+      useEffect(() => {
+         window.scrollTo(0, 0); // 스크롤을 최상단으로 이동
+      }, [pathname]);
+      
+      return null;
+   };
+
+   ScrollToTop();
 
    let loadComponent = useSelector((state) => state.loadComponent);
 

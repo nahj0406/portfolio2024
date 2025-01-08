@@ -442,11 +442,33 @@ header .Menu > a > span {
 
 #Portfolio > .list_container .item {
   position: relative; padding-bottom: 60%;
+  cursor: pointer;
 }
 
 #Portfolio > .list_container .item .img_frame {
-  position: absolute; top: 0; left: 0;
+  position: absolute; top: 0; left: 0; z-index: 1;
   width: 100%; height: 100%; background: #666;
+  transition: 0.3s;
+}
+
+#Portfolio > .list_container .item .title_box {
+  position: absolute; top: 55%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; z-index: 2;
+  font-size: max(15px, 2.5rem);
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+#Portfolio > .list_container > .item:hover .img_frame {
+  filter: grayscale(0.8) brightness(0.5);
+}
+
+#Portfolio > .list_container > .item:hover .title_box {
+  top: 50%; opacity: 1; transition-delay: 0.2s;
 }
 
 

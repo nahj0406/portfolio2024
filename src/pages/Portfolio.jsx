@@ -6,6 +6,7 @@ import {useSelector } from 'react-redux'
 function Portfolio() {
 
    let loadComponent = useSelector((state) => state.loadComponent);
+   let Pof_Data = useSelector((state) => state.Pof_Data);
 
    let [loadPage, setPage] = useState('');
 
@@ -23,32 +24,27 @@ function Portfolio() {
          <h2>PORTFOLIO</h2>
 
          <div className="list_container">
-            <article className="item">
-               1
-               <div className="img_frame"></div>
-            </article>
-
-            <article className="item">
-               2
-               <div className="img_frame"></div>
-            </article>
-
-            <article className="item">
-               3
-               <div className="img_frame"></div>
-            </article>
-
-            <article className="item">
-               3
-               <div className="img_frame"></div>
-            </article>
-
-            <article className="item">
-               3
-               <div className="img_frame"></div>
-            </article>
+            {
+               Pof_Data.map(function(a, i) {
+                  return (
+                     <PofItem key={i} i={i} Item={a}></PofItem>
+                  )
+               })
+            }
          </div>
       </div>
+   )
+}
+
+
+function PofItem({Item, i}) {
+   return (
+      <article className="item">
+         <div className="img_frame" style={{ backgroundImage: `url(${Item.Thum.img})` }}></div>
+         <div className="title_box">
+            {Item.title}
+         </div>
+      </article>
    )
 }
 
