@@ -28,12 +28,13 @@
 .Prtd {font-family: 'Pretendard-Regular' !important;}
 
 :root {
+  --theme-color: #efefef;
 	--rem-vw : min(calc(10 / 768 * 100vw), 10px);
   --header-H : 7rem;
 }
 
 html {font-size: var(--rem-vw);}
-body {margin: 0; padding: 0; background: #efefef;}
+body {margin: 0; padding: 0; background: var(--theme-color);}
 * {
   box-sizing: border-box; line-height: 1; margin: 0; padding: 0;
   font-family: "Noto Sans KR", serif;
@@ -62,31 +63,66 @@ button, input, submit {border: none; background: none;}
 .stayAni {
 	opacity: 1;
 }
+
 /* active */
 .loadPage {opacity: 1; transition: opacity 1s 0.3s;}
 
 
 /* data-scroll animation */
-.scAni .line {width: 1%; }
-/* .line {width: 1%; transition: 2.5s calc(var(--index-delay) * 1s);} */
 
-.scAni .char {
+/* 제목란 */
+.scAni .title-line .char {
   position: relative;
   top: 2rem;
 }
+.scAni .title-line .line {width: 0%;}
 
-.scAni.animate[data-scroll="in"] .char {top: 0; transition: .5s calc(.05s * var(--char-index));}
-.scAni.animate[data-scroll="in"] .line {width: 100%; transition: 2.5s;}
+.scAni.animate[data-scroll="in"] .title-line .char {
+  top: 0; 
+  transition: .5s calc(.05s * var(--char-index));
+}
+.scAni.animate[data-scroll="in"] .title-line .line {
+  width: 100%; 
+  transition: 2.5s;
+}
 
+.scAni .contt {
+  opacity: 0;
+  transform: translateY(15%);
+}
+
+.scAni .contt-t2 {
+  transform: translateY(5%);
+}
+
+.scAni.animate[data-scroll="in"] .contt {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: 1.2s;
+}
+
+
+/* 일반 텍스트 */
+.scAni .char-txt .char {
+  position: relative; left: 10px;
+  opacity: 0;
+}
+
+.scAni.animate[data-scroll="in"] .char-txt .char {
+  left: 0; opacity: 1;
+  transition: .3s calc(.03s * var(--char-index));
+}
 
 
 
 /* main coding */
 
 .App {
-  width: 100%; height: 100vh; position: relative;
+  width: 100%; position: relative;
   padding: var(--header-H) 15px var(--header-H);
 }
+
+/* header @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 header {
   position: fixed;
@@ -95,6 +131,7 @@ header {
   left: 0;
   padding: 0 15px;
   z-index: 1000;
+  background: var(--theme-color);
 }
 
 header .containerV1 {
@@ -197,33 +234,37 @@ header .Menu > a > span {
   header .mob_screen.active {display: block;}
 }
 
+/* header end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
 
 .App .container {
+  --screnn-size : 34;
   width: 100%; height: 100%; 
-  display: flex; overflow: hidden;
-  gap: 5rem;
+  display: flex; gap: 5rem;
 }
 
 /* 메인 왼쪽 스크린 */
 .main_screen {
-  min-width: 34vw; height: 100%;
+  position: fixed; top: var(--header-H);
+  min-width: min(calc(var(--screnn-size) * 1vw), 650px); 
+  height: calc(100vh - (var(--header-H) * 2));
   background: url('./img/original.gif') no-repeat center center / cover;
 }
 
 @media (min-width: 1921px) {
   .App .container {align-items: center;}
-  .main_screen {min-width: 650px;}
+  /* .main_screen {min-width: 650px;} */
 }
 
 /* 오른쪽 박스 */
-.Routes_Box {width: 100%;}
-.secBox {
-  overflow-y: scroll; height: 100%;
-  -ms-overflow-style: none;
+.Routes_Box {
+  width: 100%; 
+  max-width: 1000px;
+  margin-left: min(calc(calc(var(--screnn-size) * 1vw) + 2vw), 690px);
 }
-.secBox::-webkit-scrollbar{
+/* .secBox {height: 100%;} */
+::-webkit-scrollbar{
  display:none;
 }
 
@@ -259,6 +300,10 @@ header .Menu > a > span {
   font-size: max(14px, 1.6rem);
   color: #333;
   line-height: 1.6;
+  letter-spacing: 1px;
+}
+#About .gr_item:first-child p.text1 {
+  font-weight: 600;
 }
 
 /* list */
@@ -301,9 +346,21 @@ header .Menu > a > span {
 }
 
 /* 스킬 탭버튼 */
-#About .list_ty2 > li:not(:last-child) {
-  margin-bottom: 5rem;
+#About .list_ty2 > li {
+  overflow: hidden; height: 5rem;
 }
+
+#About .list_ty2 > li:not(:last-child) {
+  padding-bottom: 2rem;
+}
+
+/* #About .list_ty2 > li:nth-child(1) {--bg-color: #ff0000;}
+#About .list_ty2 > li:nth-child(2) {--bg-color: #ff7300;}
+#About .list_ty2 > li:nth-child(3) {--bg-color: #fbff00;}
+#About .list_ty2 > li:nth-child(4) {--bg-color: #2bff00;}
+#About .list_ty2 > li:nth-child(5) {--bg-color: #0077ff;}
+#About .list_ty2 > li:nth-child(6) {--bg-color: #7e39ff;} */
+
 
 #About .list_ty2 > li > .skill_tit {
   border-bottom: 1px solid #333;
@@ -314,10 +371,16 @@ header .Menu > a > span {
   text-transform: uppercase; letter-spacing: 2px;
   padding: 5px 10px; width: fit-content;
   border: 1px solid #333;
-  border-bottom: none; background: #eee;
+  border-bottom: none;
   border-radius: 5px 5px 0 0;
   position: relative; top: 1px;
   margin-left: 1.5rem;
+  cursor: pointer;
+  background: var(--theme-color);
+  min-width: 15.1rem;
+  text-align: center;
+  /* background: var(--bg-color); */
+  /* color: #fff; */
 }
 
 /* 스킬 내용 */
@@ -326,7 +389,8 @@ header .Menu > a > span {
   width: 100%; height: 100%;
   flex-wrap: wrap; z-index: 1;
   padding: 4rem 15px 2rem 3rem;
-  max-width: 650px;
+  /* max-width: 650px; */
+  background: var(--bg-color);
 }
 
 
@@ -349,6 +413,16 @@ header .Menu > a > span {
   font-size: max(10px, 1.2rem); font-weight: bold;
   line-height: 1.2; letter-spacing: 1px;
 }
+
+
+#About .list_ty2 > li.active {
+  height: auto;
+}
+#About .list_ty2 > li.active .skill_tit > h3 {
+  background: var(--theme-color);
+  color: #111;
+}
+#About .list_ty2 > li.active > ul {background: rgba(255, 255, 255, 0);}
 
 
 /* Portfolio @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -376,8 +450,13 @@ header .Menu > a > span {
 }
 
 
+
+/* footer @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 footer {
   width: 100%; height: var(--header-H);
+  position: fixed; bottom: 0; left: 0;
+  background: var(--theme-color);
 }
 
 footer .containerV1 {
@@ -393,6 +472,8 @@ footer #ft_logo {
 }
 
 
+/* footer end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 
 
 /* mobile */
@@ -400,8 +481,11 @@ footer #ft_logo {
 @media (max-width: 992px) {
   .App .container {
     flex-direction: column; 
-    overflow: auto; height: auto;
+    height: auto;
   }
+
+  .App .container .main_screen {display: none;}
+  .App .container .Routes_Box {margin-left: 0;}
 
   #About .gridBox .gr_item .title-line {margin-bottom: 4rem;}
   #About .list_ty2 {margin-left: 0;}
