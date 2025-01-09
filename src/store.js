@@ -123,11 +123,11 @@ let Pof_Data = createSlice({
          },
          content : {
             img : './img/Pof_whalebrew_2.jpg',
-            text : '안녕하세요 브루하우스에요.',
-            skill : ['그누보드', 'gsap'],
+            text : '그누보드로 세팅하여 작업한 크래프트맥주회사 홈페이지입니다.',
+            skill : ['Swiper', 'Jquery', 'Scroll-Out', 'Bootstrap'],
             url : 'https://whalebrew.kr/',
             involve : '100%',
-            since : '2024',
+            create : '2024',
          }
 
       },

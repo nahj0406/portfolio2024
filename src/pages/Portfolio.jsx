@@ -19,32 +19,82 @@ function Portfolio() {
       }
    }, []);
 
+
+   let [modal, setModal] = useState(false);
+   let [modalKey, keySet] = useState();
+
    return (
       <div id="Portfolio" className={`secBox ${loadComponent} ${loadPage}`}>
          <h2>PORTFOLIO</h2>
 
          <div className="list_container">
             {
-               Pof_Data.map(function(a, i) {
+               Pof_Data.map(function(item, i) {
                   return (
-                     <PofItem key={i} i={i} Item={a}></PofItem>
+                     <article className="item" key={i} onClick={()=> {setModal(!modal); keySet(i)}}>
+                        <div className="img_frame" style={{ backgroundImage: `url(${item.Thum.img})` }}></div>
+                        <div className="title_box">
+                           {item.title}
+                        </div>
+                     </article>
                   )
                })
             }
          </div>
+
+         { // 모달
+            modal == true ? <Modal item={Pof_Data} i={modalKey} setModal={setModal}></Modal> : null
+         }
       </div>
    )
 }
 
-
-function PofItem({Item, i}) {
+function Modal({item, i, setModal}) {
    return (
-      <article className="item">
-         <div className="img_frame" style={{ backgroundImage: `url(${Item.Thum.img})` }}></div>
-         <div className="title_box">
-            {Item.title}
+      <div id='item_modal'>
+         <div className="close_bg" onClick={()=> setModal(false)}></div>
+         <div className="form_box">
+            <button className='close_btn' onClick={()=> setModal(false)}>
+               <i className="fa-regular fa-circle-xmark"></i>
+            </button>
+            
+            <div className="img_frame" style={{ backgroundImage: `url(${item[i].content.img})` }}></div>
+            <div className="form_content">
+               <div className="title_box">
+                  <h3>{item[i].title}</h3>
+                  <a href={`${item[i].content.url}`} target='_blank'>{item[i].content.url}</a>
+               </div>
+
+               <div className="text_d">
+                  <span className='date'>작업 시기 : {item[i].content.create}</span>
+                  <span className='involve'>참여도 : {item[i].content.involve}</span>
+               </div>
+
+               <div className="text_box">
+                  <h5 className='i-tit'><i className="fa-solid fa-rocket icon"></i> Description</h5>
+                  <p className='text1'>
+                     {item[i].content.text}
+                  </p>
+               </div>
+
+               <div className="skill_box">
+                  <h5 className='i-tit'>
+                     <i className="fa-solid fa-wand-magic-sparkles icon"></i>
+                     Library
+                  </h5>
+                  <ul>
+                     {
+                        item[i].content.skill.map(function(name, i) {
+                           return (
+                              <li key={i}>- {name}</li>
+                           )
+                        })
+                     }
+                  </ul>
+               </div>
+            </div>
          </div>
-      </article>
+      </div>
    )
 }
 
