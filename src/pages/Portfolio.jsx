@@ -2,6 +2,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useSelector } from 'react-redux'
+import ScrollOut from "scroll-out";
 
 function Portfolio() {
 
@@ -17,6 +18,28 @@ function Portfolio() {
          clearTimeout(loadAni);
          setPage('');
       }
+   }, []);
+
+   useEffect(() => {
+      const scrollOutInstance = ScrollOut({
+         targets: ".list_container .item",
+         threshold: 0.5,
+         once: true, // 요소가 한 번만 감지되도록 설정
+         onShown: function (el) {
+            // 요소가 뷰포트에 들어왔을 때 실행
+            const elements = Array.from(document.querySelectorAll(".list_container .item"));
+            const index = elements.indexOf(el);
+            const delay = index * 70;
+
+            setTimeout(() => {
+            el.classList.add("On"); // 순차적으로 클래스 추가
+            }, delay);
+         },
+      });
+
+      return () => {
+         scrollOutInstance.teardown(); // ScrollOut 인스턴스 정리
+      };
    }, []);
 
 

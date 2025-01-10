@@ -3,6 +3,7 @@ import { Suspense, useState, useEffect } from 'react'
 import {Routes, Route, Link, useLocation} from 'react-router-dom'
 import './App.css'
 import { useSelector } from 'react-redux'
+import Lenis from '@studio-freight/lenis';
 
 // pages
 import About from './pages/About.jsx'
@@ -21,8 +22,29 @@ function App() {
       
       return null;
    };
-
    ScrollToTop();
+
+   useEffect(() => {
+		// Lenis 인스턴스 생성
+		const lenis = new Lenis({
+			smoothWheel: true,
+      	smoothTouch: true,
+			wheelMultiplier: 0.7, // 휠 스크롤 속도 감소, 기본값 1
+      	touchMultiplier: 2, // 터치 스크롤 속도 증가 기본값 2
+		 });
+
+		// 애니메이션 루프 설정
+		function raf(time) {
+		  lenis.raf(time);
+		  requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+  
+		// 클린업: Lenis 인스턴스 제거
+		return () => {
+		  lenis.destroy();
+		};
+	}, []);
 
    let loadComponent = useSelector((state) => state.loadComponent);
 
@@ -72,6 +94,11 @@ function App() {
 function Header() {
 
    let [MenuState, setMenuState] = useState('');
+   const location = useLocation();
+
+   useEffect(() => {
+      setMenuState(''); // URL 변경 시 MenuState 초기화
+   }, [location]);
 
    const toggleMenu = () => {
       setMenuState((prev) => (prev === '' ? 'active' : ''));
