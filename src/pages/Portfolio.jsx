@@ -1,4 +1,5 @@
 /* eslint-disable */
+import '../css/modal.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux';
@@ -6,6 +7,10 @@ import { useMediaQuery } from "react-responsive";
 import ScrollOut from "scroll-out";
 import { setClickedValue } from '../store';
 
+
+// mainscreen 포트폴리오 내용 변경 애니메이션 넣음 (어떻게 할진 좀 더 생각중)
+// mainscreen에 불러온 내용이랑 모바일 ui 다시 만들기
+// (https://portfoliosj-react.netlify.app/) 여기 프로젝트란 참고.
 
 
 
@@ -99,25 +104,45 @@ export function PofModal() {// pc 모달
    let Pof_Data = useSelector((state) => state.Pof_Data);
 
 
-   if (i === null || i >= Pof_Data.length) return null;
+   // 애니메이션 상태 및 현재 렌더링할 콘텐츠 상태
+   const [isAnimating, setIsAnimating] = useState(false);
+   const [PofContent, setPofContent] = useState(null);
+
+   useEffect(() => {
+      if (i === null || i >= Pof_Data.length) return;
+
+      // 애니메이션 시작
+      setIsAnimating(true);
+
+      // 애니메이션 종료 후 콘텐츠 업데이트
+      const timeout = setTimeout(() => {
+         setPofContent(Pof_Data[i]?.content || null);
+         setIsAnimating(false);
+      }, 1100); // 애니메이션 지속 시간 (예: 500ms)
+
+      return () => clearTimeout(timeout); // 클린업 함수
+   }, [i, Pof_Data]);
+
+   if (PofContent === null) return null;
+   
    return (
-      <div id='pof_modal' style={{ backgroundImage: `url(${Pof_Data[i].content.img})`}}>
+      <div id='pof_modal' className={isAnimating ? 'changeAni' : ''} style={{ backgroundImage: `url(${PofContent.img})`}}>
          <div className="form_box">
             <div className="form_content">
                <div className="title_box">
-                  <h3>{Pof_Data[i].title}</h3>
-                  <a href={`${Pof_Data[i].content.url}`} target='_blank'>{Pof_Data[i].content.url}</a>
+                  <h3>{PofContent.title}</h3>
+                  <a href={`${PofContent.url}`} target='_blank'>{PofContent.url}</a>
                </div>
 
                <div className="text_d">
-                  <span className='date'>작업 시기 : {Pof_Data[i].content.create}</span>
-                  <span className='involve'>참여도 : {Pof_Data[i].content.involve}</span>
+                  <span className='date'>작업 시기 : {PofContent.create}</span>
+                  <span className='involve'>참여도 : {PofContent.involve}</span>
                </div>
 
                <div className="text_box">
                   <h5 className='i-tit'><i className="fa-solid fa-rocket icon"></i> Description</h5>
                   <p className='text1'>
-                     {Pof_Data[i].content.text}
+                     {PofContent.text}
                   </p>
                </div>
 
