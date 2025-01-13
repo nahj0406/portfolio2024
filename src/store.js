@@ -112,6 +112,17 @@ let set_skill = createSlice({
 
 // PortFolio -------------------------------------
 
+let ModalClickEvent = createSlice({
+   name : 'ModalClickEvent',
+   initialState : {clickValue: null,},
+   reducers: {
+      setClickedValue: (state, action) => {
+         state.clickValue = action.payload;
+      },
+   },
+})
+
+
 let Pof_Data = createSlice({
    name : 'Pof_Data',
    initialState : [
@@ -254,11 +265,14 @@ let Pof_Data = createSlice({
 })
 
 
+export const { setClickedValue } = ModalClickEvent.actions;
+
 // createSlice로 만든 state는 아래에 꼭 등록해야 사용 가능
 export default configureStore({
    reducer: {
       loadComponent : loadComponent.reducer,
       set_skill : set_skill.reducer,
       Pof_Data : Pof_Data.reducer,
+      ModalClickEvent : ModalClickEvent.reducer,
    }
 })
