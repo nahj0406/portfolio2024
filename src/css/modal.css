@@ -1,29 +1,7 @@
-
-
-#pof_modal {
-   height: 100%;
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   overflow: hidden;
-   position: relative;
-}
-
-#pof_modal > * {position: relative; z-index: 1;}
-
-#pof_modal::before {
-  content:''; position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  transform: translate(-100%, -100%);
-  background: skyblue; z-index: 2;
-  transition:  1s;
-}
-
-#pof_modal.changeAni::before {
-  transform: translate(0%, 0%);
-}
-
 /* mobile modal @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+@import url('https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+.Galmuri {font-family: 'Galmuri11', sans-serif !important;}
 
 #item_modal {
    position: fixed;
@@ -81,7 +59,7 @@
  }
  
  #item_modal .form_box .title_box h3 {
-   color: #111; font-weight: 500;
+   color: #111; font-weight: bold;
    font-size: max(15px, 2.8rem);
  }
  

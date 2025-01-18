@@ -7,33 +7,12 @@ import Lenis from '@studio-freight/lenis';
 
 // pages
 import About from './pages/About.jsx'
-import {Portfolio, PofModal} from './pages/Portfolio.jsx'
+import Portfolio from './pages/Portfolio.jsx'
 import Project from './pages/Project.jsx'
 
 
 function App() {
 
-
-   // mainScreen
-   const ScreenLoaction = useLocation();
-   let [pageid, idSet] = useState('homeScreen');
-
-   useEffect(() => {
-      if(ScreenLoaction.pathname === '/About') {
-         idSet('aboutScreen');
-      } else if (ScreenLoaction.pathname === '/Portfolio') {
-         idSet('pofScreen');
-      } else if (ScreenLoaction.pathname === '/Project') {
-         idSet('pjScreen');
-      } else {
-         idSet('homeScreen');
-      }
-   }, [ScreenLoaction]);
-
-   // mainScreen
-
-
-   // 페이지 변경시 스크롤 초기화
    const ScrollToTop = () => {
       const { pathname } = useLocation();
       
@@ -44,10 +23,7 @@ function App() {
       return null;
    };
    ScrollToTop();
-   // 페이지 변경시 스크롤 초기화
 
-
-   // lenis
    useEffect(() => {
 		// Lenis 인스턴스 생성
 		const lenis = new Lenis({
@@ -69,11 +45,9 @@ function App() {
 		  lenis.destroy();
 		};
 	}, []);
-   // lenis
 
-
-   // 페이지 전환 애니메이션
    let loadComponent = useSelector((state) => state.loadComponent);
+
    let [loadPage, setPage] = useState('');
 
    useEffect(() => {
@@ -84,7 +58,6 @@ function App() {
          setPage('');
       }
    }, []);
-   // 페이지 전환 애니메이션
 
    return (
       <div className='App'>
@@ -93,13 +66,10 @@ function App() {
 
          {/* main */}
          <div className="container containerV1">
-            <section className="main_screen" id={pageid}>
-               {
-                  ScreenLoaction.pathname === '/Portfolio' ?
-                  <PofModal></PofModal> : null
-               }
+            <section className="main_screen">
+
             </section>
-               
+
             <section className="Routes_Box">
                <Routes>
                   <Route path='/' element={
@@ -108,9 +78,9 @@ function App() {
                      </div>
                   } />
 
-                  <Route path='/About' element={<About></About>} />
-                  <Route path='/Portfolio' element={<Portfolio></Portfolio>} />
-                  <Route path='/Project' element={<Project></Project>} />
+                  <Route path='/About' element={<><About></About></>} />
+                  <Route path='/Portfolio' element={<><Portfolio></Portfolio></>} />
+                  <Route path='/Project' element={<><Project></Project></>} />
                </Routes>
             </section>
          </div>
