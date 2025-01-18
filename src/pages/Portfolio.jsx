@@ -126,7 +126,7 @@ export function PofModal() {// pc 모달
    if (PofContent === null) return null;
    
    return (
-      <div id='pof_modal' className={isAnimating ? 'changeAni' : ''} style={{ backgroundImage: `url(${PofContent.img})`}}>
+      <div id='pof_modal' className={`${isAnimating ? 'changeAni' : ''} viewModal`} style={{ backgroundImage: `url(${PofContent.img})`}}>
          <div className="form_box">
             <div className="form_content">
                <div className="title_box">
@@ -175,7 +175,7 @@ function Modal({item, i, setModal}) {
    if (!isMobile) return null;
 
    return (
-      <div id='item_modal'>
+      <div id='item_modal' className='viewModal'>
          <div className="close_bg" onClick={()=> setModal(false)}></div>
          <div className="form_box">
             <button className='close_btn' onClick={()=> setModal(false)}>

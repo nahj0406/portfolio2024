@@ -29,6 +29,7 @@ function App() {
          idSet('homeScreen');
       }
    }, [ScreenLoaction]);
+
    // mainScreen
 
 
