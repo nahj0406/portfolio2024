@@ -377,6 +377,150 @@ let Pof_Data = createSlice({
          }
 
       },
+
+      { // 오케이동물병원
+         name : 'okanimal',
+         title : '오케이동물메디컬센터',
+         Thum : {
+            img : './img/Pof_okanimal_1.jpg',
+         },
+         content : {
+            title : '오케이동물메디컬센터',
+            img : './img/Pof_okanimal_2.jpg',
+            text : '24시 오케이동물메디컬센터 홈페이지입니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery'],
+            url : 'https://okanimal.iwinv.net/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 이노펫
+         name : 'innopet',
+         title : '이노펫',
+         Thum : {
+            img : './img/Pof_innopet_1.jpg',
+         },
+         content : {
+            title : '이노펫',
+            img : './img/Pof_innopet_2.jpg',
+            text : '반려동물 제품을 연구개발, 제조하는 기업 사이트로 원페이지 형식으로 기획되었습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery'],
+            url : 'https://innopet.kr/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 오토엑스포트
+         name : 'autoex',
+         title : '오토엑스포트',
+         Thum : {
+            img : './img/Pof_autoex_1.jpg',
+         },
+         content : {
+            title : '오토엑스포트',
+            img : './img/Pof_autoex_2.jpg',
+            text : '중고차 및 차량부품 수출전문 기업 사이트입니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery'],
+            url : 'https://www.autoexport.kr/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 에이치엔에프
+         name : 'hnf',
+         title : '에이치엔에프',
+         Thum : {
+            img : './img/Pof_hnf_1.jpg',
+         },
+         content : {
+            title : '에이치엔에프',
+            img : './img/Pof_hnf_2.jpg',
+            text : '진공펌프 수리 및 유지보수 업체로 fullpage.js를 사용하여 전체화면 스크롤링 효과로 방문객들의 페이지 집중도를 높일 수 있도록 기획되었습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery', 'fullpage'],
+            url : 'https://hnfvac.com/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 아트월드
+         name : 'artworld',
+         title : '아트월드',
+         Thum : {
+            img : './img/Pof_artworld_1.jpg',
+         },
+         content : {
+            title : '아트월드',
+            img : './img/Pof_artworld_2.jpg',
+            text : '세종시에 있는 전문디자인업체로 심플한 디자인에 맞춰서 퍼블리싱 작업을 진행하였습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery',],
+            url : 'https://www.s-artworld.com/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 한국인증협회
+         name : 'ikca',
+         title : '한국인증협회',
+         Thum : {
+            img : './img/Pof_ikca_1.jpg',
+         },
+         content : {
+            title : '한국인증협회',
+            img : './img/Pof_ikca_2.jpg',
+            text : 'ESG인증, ISO인증, 경영인증 등을 기반으로 하는 경영 컨설팅 업체입니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery',],
+            url : 'https://www.ikca.kr/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 엠아이티코리아
+         name : 'mit',
+         title : '엠아이티코리아',
+         Thum : {
+            img : './img/Pof_mit_1.jpg',
+         },
+         content : {
+            title : '엠아이티코리아',
+            img : './img/Pof_mit_2.jpg',
+            text : '자동차 관련 시험설비와 부품을 제조하는 업체로 fullpage.js를 사용하여 전체 스크롤링 페이지를 구현하였습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery', 'fullpage'],
+            url : 'https://www.mitkorea56.co.kr/',
+            involve : '100%',
+            create : '2023',
+         }
+
+      },
+
+      { // 제이솔루션
+         name : 'jsol',
+         title : '제이솔루션',
+         Thum : {
+            img : './img/Pof_jsol_1.jpg',
+         },
+         content : {
+            title : '제이솔루션',
+            img : './img/Pof_jsol_2.jpg',
+            text : 'LG화학 기계장비 전문설치 및 정비를 담당하는 전문기업 홈페이지로 fullpage.js를 사용하여 전체 스크롤링 페이지 형식으로 구현되었습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery', 'fullpage', 'Scroll-out'],
+            url : 'https://jsolution2017.kr/',
+            involve : '100%',
+            create : '2024',
+         }
+
+      },
    ]
 })
 
