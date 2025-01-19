@@ -18,6 +18,15 @@
 }
 .Gabia {font-family: 'GabiaGosran-Regular' !important;}
 
+/* 우리다움체체 */
+@font-face {
+  font-family: 'WooridaumB';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+.Woori {font-family: 'WooridaumB' !important;}
+
 /* 프리텐다드 */
 @font-face {
   font-family: 'Pretendard-Regular';
@@ -275,6 +284,7 @@ header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
 
 
 .App .container {
+  --main-H : 78;
   --screnn-size : 34;
   width: 100%; height: 100%; 
   display: flex; gap: 5rem;
@@ -284,7 +294,8 @@ header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
 .main_screen {
   position: fixed; top: var(--header-H);
   min-width: min(calc(var(--screnn-size) * 1vw), 650px); 
-  height: calc(100vh - (var(--header-H) * 2));
+  /* height: calc(100vh - (var(--header-H) * 2)); */
+  height: calc(var(--main-H) * 1rem);
   background: url('./img/original.gif') no-repeat center center / cover;
 }
 
@@ -303,6 +314,41 @@ header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
 ::-webkit-scrollbar{
  display:none;
 }
+
+
+/* home @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+#home {
+  height: calc(var(--main-H) * 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8rem;
+}
+
+#home > h1 {
+  font-size: 7rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 3rem;
+}
+
+#home > p {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+#home > a {font-size: 2.5rem;}
+
+
+
+
+/* home end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+
+
 
 /* About @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 

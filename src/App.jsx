@@ -66,15 +66,18 @@ function App() {
 
          {/* main */}
          <div className="container containerV1">
-            <section className="main_screen">
-
-            </section>
+            <section className="main_screen"></section>
 
             <section className="Routes_Box">
                <Routes>
                   <Route path='/' element={
-                     <div className={`${loadComponent} ${loadPage}`}>
-                        home
+                     <div className={`${loadComponent} ${loadPage}`} id='home'>
+                        <h1 className='Woori'>Nhj Portfolio <span className='Woori'>2024</span></h1>
+                        <p className='Prtd'>
+                           Thank you for visiting my portfolio
+                        </p>
+
+                        <Link className="" to='/Portfolio'><span>view portfolio</span></Link>
                      </div>
                   } />
 
