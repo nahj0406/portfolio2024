@@ -74,10 +74,18 @@ function Portfolio() {
 }
 
 function Modal({item, i, setModal}) {
+
+   const [modalAni, setModalAni] = useState(false);
+
+   useEffect(() => {// 모달이 열릴때 작동
+      setModalAni(true);
+      return () => setModalAni(false);
+    }, []);
+
    return (
-      <div id='item_modal'>
+      <div id='item_modal' className='pof_modal'>
          <div className="close_bg" onClick={()=> setModal(false)}></div>
-         <div className="form_box">
+         <div className={`${modalAni ? 'active' : ''} form_box`}>
             <button className='close_btn' onClick={()=> setModal(false)}>
                <i className="fa-regular fa-circle-xmark"></i>
             </button>
@@ -88,15 +96,8 @@ function Modal({item, i, setModal}) {
                </div>
 
                <div className="text_d">
-                  <span className='date Galmuri'>작업 시기 : {item[i].content.create}</span>
-                  <span className='involve Galmuri'>참여도 : {item[i].content.involve}</span>
-               </div>
-
-               <div className="text_box">
-                  <h5 className='i-tit Galmuri'><i className="fa-solid fa-rocket icon"></i> Description</h5>
-                  <p className='text1 Galmuri'>
-                     {item[i].content.text}
-                  </p>
+                  <span className='date Galmuri'><b>작업 시기 :</b> {item[i].content.create}</span>
+                  <span className='involve Galmuri'><b>참여도 :</b> {item[i].content.involve}</span>
                </div>
 
                <div className="skill_box">
@@ -113,6 +114,13 @@ function Modal({item, i, setModal}) {
                         })
                      }
                   </ul>
+               </div>
+
+               <div className="text_box">
+                  <h5 className='i-tit Galmuri'><i className="fa-solid fa-rocket icon"></i> Description</h5>
+                  <p className='text1 Galmuri'>
+                     {item[i].content.text}
+                  </p>
                </div>
             </div>
 

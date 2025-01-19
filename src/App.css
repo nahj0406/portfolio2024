@@ -165,18 +165,38 @@ header #logo > span {font-family: inherit; color: #fe5058;}
 
 header .Menu {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
 }
 header .Menu > a {
   font-size: 18px;
   color: #111;
   font-weight: bold;
-  /* text-transform: uppercase; */
+  position: relative;
+  padding: 5px 5px;
+  overflow: hidden;
 }
+
+header .Menu > a:nth-child(1) {--before-color: #fe5058;}
+header .Menu > a:nth-child(2) {--before-color: #508dfe;}
+header .Menu > a:nth-child(3) {--before-color: #3cc278;}
+header .Menu > a:nth-child(4) {--before-color: #9350fe;}
+
+header .Menu > a::before {
+  content:''; position: absolute;
+  top: 0%; left: -100%; 
+  width: 100%; height: 100%; background: #ccc;
+  z-index: 1; background: var(--before-color);
+  transition: 0.5s;
+}
+
 header .Menu > a > span {
   font-family: inherit; font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.5px; position: relative;
+  z-index: 2; transition: 0.3s; color: #000;
 }
+
+header .Menu > a.on::before, header .Menu > a:hover::before {left: 0;}
+header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
 
 @media (min-width: 769px) {
   header .mob_btn {display: none;}

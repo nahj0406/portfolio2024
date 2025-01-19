@@ -111,10 +111,10 @@ function Header() {
    
             <div className={`outer ${MenuState}`}>
                <div className="Menu">
-                  <Link className={`Pop`} to='/'><span>Home</span></Link>
-                  <Link className={`Pop`} to='/About'><span>About</span></Link>
-                  <Link className={`Pop`} to='/Portfolio'><span>Portfolio</span></Link>
-                  <Link className={`Pop`} to='/Project'><span>Project</span></Link>
+                  <Link className={`${location.pathname === '/' ? 'on' : ''} Pop`} to='/'><span>Home</span></Link>
+                  <Link className={`${location.pathname === '/About' ? 'on' : ''} Pop`} to='/About'><span>About</span></Link>
+                  <Link className={`${location.pathname === '/Portfolio' ? 'on' : ''} Pop`} to='/Portfolio'><span>Portfolio</span></Link>
+                  <Link className={`${location.pathname === '/Project' ? 'on' : ''} Pop`} to='/Project'><span>Project</span></Link>
                </div>
             </div>
 
