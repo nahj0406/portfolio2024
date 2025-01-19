@@ -157,7 +157,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드','gsap', 'splitting.js', 'Lenis.js'],
             url : 'https://yydshow23.iwinv.net/',  
             involve : '100%',
-            since : '2023',
+            create : '2023',
          }
 
       },
@@ -175,7 +175,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'Swiper', 'Jquery'],
             url : 'https://whalebrew.kr/',  
             involve : '40%',
-            since : '2022',
+            create : '2022',
          }
 
       },
@@ -193,7 +193,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'Swiper', 'scroll-Out'],
             url : 'https://hanyuheritage.com/',  
             involve : '100%',
-            since : '2023',
+            create : '2023',
          }
 
       },
@@ -211,7 +211,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'Swiper', 'Lenis', 'scroll-Out'],
             url : 'https://heritagehanyu.com/',  
             involve : '100%',
-            since : '2024',
+            create : '2024',
          }
 
       },
@@ -229,7 +229,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'fullpage', 'Swiper', 'scroll-Out'],
             url : 'https://www.samjoo.or.kr/',  
             involve : '100%',
-            since : '2024',
+            create : '2024',
          }
 
       },
@@ -247,7 +247,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'Lenis', 'Swiper', 'scroll-Out'],
             url : 'https://www.samjoo.or.kr/',  
             involve : '100%',
-            since : '2024',
+            create : '2024',
          }
 
       },
@@ -265,7 +265,7 @@ let Pof_Data = createSlice({
             skill : ['그누보드', 'fullpage', 'Swiper', 'scroll-Out'],
             url : 'https://nsworld.kr',  
             involve : '100%',
-            since : '2024',
+            create : '2024',
          }
 
       },

@@ -4,6 +4,7 @@ import {Routes, Route, Link, useLocation} from 'react-router-dom'
 import './App.css'
 import { useSelector } from 'react-redux'
 import Lenis from '@studio-freight/lenis';
+import Splitting from 'splitting';
 
 // pages
 import About from './pages/About.jsx'
@@ -12,6 +13,12 @@ import Project from './pages/Project.jsx'
 
 
 function App() {
+
+   const location = useLocation();
+
+   useEffect(() => {
+      Splitting();
+   }, [location.pathname]);
 
    const ScrollToTop = () => {
       const { pathname } = useLocation();
@@ -51,18 +58,25 @@ function App() {
    let [loadPage, setPage] = useState('');
 
    useEffect(() => {
-      let loadAni = setTimeout(() => {setPage('loadPage')}, 100);
+      if (location.pathname === '/') {
+         let loadAni = setTimeout(() => {
+            setPage('loadPage');
+         }, 100);
 
-      return () => {
-         clearTimeout(loadAni);
-         setPage('');
+         return () => {
+            clearTimeout(loadAni);
+            setPage('');
+         };
       }
-   }, []);
+
+   }, [location.pathname]);
+
+   const home = location.pathname === '/';
 
    return (
-      <div className='App'>
+      <div className={`App ${home ? 'main' : ''}`}>
          {/* header */}
-         <Header></Header>
+         <Header location={location}></Header>
 
          {/* main */}
          <div className="container containerV1">
@@ -72,12 +86,12 @@ function App() {
                <Routes>
                   <Route path='/' element={
                      <div className={`${loadComponent} ${loadPage}`} id='home'>
-                        <h1 className='Woori'>Nhj Portfolio <span className='Woori'>2024</span></h1>
-                        <p className='Prtd'>
+                        <h1 className='' data-splitting>Nhj Portfolio <span className='Woori'>2024</span></h1>
+                        <p className='Pop' data-splitting>
                            Thank you for visiting my portfolio
                         </p>
 
-                        <Link className="" to='/Portfolio'><span>view portfolio</span></Link>
+                        <Link to='/Portfolio' className="view_btn"><span data-splitting>View Portfolio</span></Link>
                      </div>
                   } />
 
@@ -94,10 +108,10 @@ function App() {
    )
 }
 
-function Header() {
+function Header({ location }) {
 
    let [MenuState, setMenuState] = useState('');
-   const location = useLocation();
+   
 
    useEffect(() => {
       setMenuState(''); // URL 변경 시 MenuState 초기화
