@@ -18,19 +18,9 @@ function App() {
    const location = useLocation();
 
    useEffect(() => {
+      window.scrollTo(0, 0); // 스크롤을 최상단으로 이동
       Splitting();
    }, [location.pathname]);
-
-   const ScrollToTop = () => {
-      const { pathname } = useLocation();
-      
-      useEffect(() => {
-         window.scrollTo(0, 0); // 스크롤을 최상단으로 이동
-      }, [pathname]);
-      
-      return null;
-   };
-   ScrollToTop();
 
    useEffect(() => {
 		// Lenis 인스턴스 생성
@@ -66,13 +56,20 @@ function App() {
       if (location.pathname === '/') {
          let loadAni = setTimeout(() => {
             setPage('loadPage');
+            canvasSet('mainCanvas');
          }, 100);
 
          return () => {
             clearTimeout(loadAni);
             setPage('');
          };
+      } else if (location.pathname === '/About') {
+         canvasSet('AboutCanvas');
+      } else if (location.pathname === '/Portfolio') {
+         canvasSet('PofCanvas');
       }
+
+
    }, [location.pathname]);
 
    return (
@@ -82,9 +79,7 @@ function App() {
 
          {/* main */}
          <div className="container containerV1">
-            <section className="main_screen">
-               <canvas id={`${canvasId}`}></canvas>
-            </section>
+            <section className="main_screen" id={`${canvasId}`}></section>
 
             <section className="Routes_Box">
                <Routes>
@@ -101,7 +96,7 @@ function App() {
 
                   <Route path='/About' element={<><About></About></>} />
                   <Route path='/Portfolio' element={<><Portfolio></Portfolio></>} />
-                  <Route path='/Project' element={<><Project></Project></>} />
+                  {/* <Route path='/Project' element={<><Project></Project></>} /> */}
                </Routes>
             </section>
          </div>
@@ -135,7 +130,7 @@ function Header({ location }) {
                   <Link className={`${location.pathname === '/' ? 'on' : ''} Pop`} to='/'><span>Home</span></Link>
                   <Link className={`${location.pathname === '/About' ? 'on' : ''} Pop`} to='/About'><span>About</span></Link>
                   <Link className={`${location.pathname === '/Portfolio' ? 'on' : ''} Pop`} to='/Portfolio'><span>Portfolio</span></Link>
-                  <Link className={`${location.pathname === '/Project' ? 'on' : ''} Pop`} to='/Project'><span>Project</span></Link>
+                  {/* <Link className={`${location.pathname === '/Project' ? 'on' : ''} Pop`} to='/Project'><span>Project</span></Link> */}
                </div>
             </div>
 

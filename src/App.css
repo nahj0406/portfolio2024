@@ -271,12 +271,12 @@ header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
   header .outer.active {right: -15px;}
   header .mob_btn.active span {opacity: 0;}
   header .mob_btn.active::before {
-    top: 1.5rem;
-    transform: rotate(45deg);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
   header .mob_btn.active::after {
-    bottom: 1rem;
-    transform: rotate(-45deg);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
   header .mob_screen.active {display: block;}
 }
@@ -295,10 +295,18 @@ header .Menu > a.on > span, header .Menu > a:hover > span {color: #fff;}
 /* 메인 왼쪽 스크린 */
 .main_screen {
   position: fixed; top: var(--header-H);
+  top: 50%; transform: translateY(-50%);
   min-width: min(calc(var(--screnn-size) * 1vw), 650px); 
   /* height: calc(100vh - (var(--header-H) * 2)); */
   height: calc(var(--main-H) * 1rem);
-  background: url('./img/original.gif') no-repeat center center / cover;
+  background: url('./img/main_screen.gif') no-repeat center right / cover;
+}
+
+#AboutCanvas {
+  background: url('./img/About_screen.gif') no-repeat center center / cover;
+}
+#PofCanvas {
+  background: url('./img/pof_screen.gif') no-repeat center center / cover;
 }
 
 @media (min-width: 1921px) {
@@ -675,6 +683,13 @@ footer #ft_logo {
 
 
 /* mobile */
+
+@media (max-width: 1650px) {
+  .App .container .main_screen {
+    height: min(calc(780 / 1650 * 100vw), calc(var(--main-H) * 1rem));
+    /* calc(var(--main-H) * 1rem); */
+  }
+}
 
 @media (max-width: 992px) {
   .App .container {height: auto;}
