@@ -55,9 +55,13 @@ function App() {
 
    let loadComponent = useSelector((state) => state.loadComponent);
 
+   // 페이지 전환 애니메이션
    let [loadPage, setPage] = useState('');
+   let [canvasId, canvasSet] = useState('mainCanvas');
+   const home = location.pathname === '/';
 
    useEffect(() => {
+
       if (location.pathname === '/') {
          let loadAni = setTimeout(() => {
             setPage('loadPage');
@@ -69,9 +73,9 @@ function App() {
          };
       }
 
-   }, [location.pathname]);
 
-   const home = location.pathname === '/';
+
+   }, [location.pathname]);
 
    return (
       <div className={`App ${home ? 'main' : ''}`}>
@@ -80,7 +84,9 @@ function App() {
 
          {/* main */}
          <div className="container containerV1">
-            <section className="main_screen"></section>
+            <section className="main_screen">
+               <canvas id={`${canvasId}`}></canvas>
+            </section>
 
             <section className="Routes_Box">
                <Routes>
