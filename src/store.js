@@ -126,6 +126,24 @@ let ModalClickEvent = createSlice({
 let Pof_Data = createSlice({
    name : 'Pof_Data',
    initialState : [
+      { // 개인 포트폴리오 프로젝트
+         name : 'nahjPof',
+         title : '포트폴리오',
+         Thum : {
+            img : './img/Pof_nahj_1.jpg',
+         },
+         content : {
+            title : '포트폴리오',
+            img : './img/Pof_nahj_2.jpg',
+            text : '리액트로 작업하였으며 서버와의 연결이 불필요하다 판단하여 클라이언트 렌더링으로 작업해 필요한 포트폴리오 data는 Redux를 통해 하나의 js파일에 중앙관리화 하였고 포트폴리오를 보는 사용자들에게 간결하게 정보를 전달할 수 있도록 작업하였습니다.',
+            skill : ['React', 'Scroll-Out', 'Splitting', 'redux'],
+            url : 'https://whalebrew.kr/',
+            involve : '100%',
+            create : '2024',
+         }
+
+      },
+
       { // 블루웨일 브루하우스
          name : 'whalebrew',
          title : '블루웨일브루하우스',
@@ -521,6 +539,23 @@ let Pof_Data = createSlice({
          }
 
       },
+
+      {// 하얀민들레
+         name : 'youngheal',
+         title : '하얀민들레',
+         Thum : {
+            img : './img/Pof_youngheal_1.jpg',
+         },
+         content : {
+            title : '하얀민들레',
+            img : './img/Pof_youngheal_2.jpg',
+            text : '반려동물장례식장 홈페이지로 기존에 있던 홈페이지를 리뉴얼 작업하였습니다.',
+            skill : ['그누보드', 'Swiper', 'Jquery', 'Scroll-out'],
+            url : 'https://youngheal.com/',
+            involve : '100%',
+            create : '2024',
+         }
+      }
    ]
 })
 
