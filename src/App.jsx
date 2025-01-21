@@ -2,6 +2,7 @@
 import { Suspense, useState, useEffect } from 'react'
 import {Routes, Route, Link, useLocation} from 'react-router-dom'
 import './App.css'
+import './js/mainScreen.js'
 import { useSelector } from 'react-redux'
 import Lenis from '@studio-freight/lenis';
 import Splitting from 'splitting';
@@ -72,9 +73,6 @@ function App() {
             setPage('');
          };
       }
-
-
-
    }, [location.pathname]);
 
    return (
